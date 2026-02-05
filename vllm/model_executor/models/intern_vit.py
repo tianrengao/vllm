@@ -15,6 +15,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from transformers import PretrainedConfig
 
+from vllm.compilation.decorators import support_torch_compile
 from vllm.distributed import (
     divide,
     get_tensor_model_parallel_rank,
@@ -33,8 +34,6 @@ from vllm.model_executor.layers.linear import (
 )
 from vllm.model_executor.layers.quantization import QuantizationConfig
 from vllm.model_executor.model_loader.weight_utils import default_weight_loader
-
-from vllm.compilation.decorators import support_torch_compile
 
 from .vision import (
     is_vit_use_data_parallel,
